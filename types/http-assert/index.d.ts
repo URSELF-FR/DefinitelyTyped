@@ -6,13 +6,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
+import * as httpError from 'http-errors';
+
 /**
  * @param status the status code
  * @param msg the message of the error, defaulting to node's text for that status code
  * @param opts custom properties to attach to the error object
  */
-declare function assert(value: any, status?: number, msg?: string, opts?: {}): void;
-declare function assert(value: any, status?: number, opts?: {}): void;
+declare function assert(value: any, status?: httpError.UnknownError, msg?: httpError.UnknownError, opts?: httpError.UnknownError): void;
 
 declare namespace assert {
     /**
@@ -20,21 +21,21 @@ declare namespace assert {
      * @param msg the message of the error, defaulting to node's text for that status code
      * @param opts custom properties to attach to the error object
      */
-    type Assert = <T>(a: T, b: T, status?: number, msg?: string, opts?: {}) => void;
+    type Assert = <T>(a: T, b: T, status?: httpError.UnknownError, msg?: httpError.UnknownError, opts?: httpError.UnknownError) => void;
 
     /**
      * @param status the status code
      * @param msg the message of the error, defaulting to node's text for that status code
      * @param opts custom properties to attach to the error object
      */
-    type AssertOK = (a: any, status?: number, msg?: string, opts?: {}) => void;
+    type AssertOK = (a: any, status?: httpError.UnknownError, msg?: httpError.UnknownError, opts?: httpError.UnknownError) => void;
 
     /**
      * @param status the status code
      * @param msg the message of the error, defaulting to node's text for that status code
      * @param opts custom properties to attach to the error object
      */
-    type AssertEqual = (a: any, b: any, status?: number, msg?: string, opts?: {}) => void;
+    type AssertEqual = (a: any, b: any, status?: httpError.UnknownError, msg?: httpError.UnknownError, opts?: httpError.UnknownError) => void;
 
     const equal: Assert;
     const notEqual: Assert;
